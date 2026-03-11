@@ -27,7 +27,7 @@ class GUITeleop:
         
         # Dimensions
         self.width = 500
-        self.height = 300
+        self.height = 360
         self.margin = 30
         
         self.lock = threading.Lock()
@@ -52,8 +52,12 @@ class GUITeleop:
                     elif key == ord('s'):
                         self.cmd_vel[0] = np.clip(self.cmd_vel[0] - self.lin_step, -self.max_lin, self.max_lin)
                     elif key == ord('a'):
-                        self.cmd_vel[2] = np.clip(self.cmd_vel[2] + self.ang_step, -self.max_ang, self.max_ang)
+                        self.cmd_vel[1] = np.clip(self.cmd_vel[1] + self.lin_step, -self.max_lin, self.max_lin)
                     elif key == ord('d'):
+                        self.cmd_vel[1] = np.clip(self.cmd_vel[1] - self.lin_step, -self.max_lin, self.max_lin)
+                    elif key == ord('q'):
+                        self.cmd_vel[2] = np.clip(self.cmd_vel[2] + self.ang_step, -self.max_ang, self.max_ang)
+                    elif key == ord('e'):
                         self.cmd_vel[2] = np.clip(self.cmd_vel[2] - self.ang_step, -self.max_ang, self.max_ang)
                     elif key == ord(' '):
                         self.cmd_vel[:] = 0.0
@@ -103,11 +107,12 @@ class GUITeleop:
         cv2.line(img, (self.margin, 65), (self.width - self.margin, 65), (100, 100, 100), 1)
         
         # Draw Bars
-        self._draw_bar(img, current_vel[0], self.max_lin, 120, "Linear Velocity (x)", self.lin_bar_color)
-        self._draw_bar(img, current_vel[2], self.max_ang, 190, "Angular Velocity (yaw)", self.ang_bar_color)
+        self._draw_bar(img, current_vel[0], self.max_lin, 100, "Linear Velocity (x)  [W/S]", self.lin_bar_color)
+        self._draw_bar(img, current_vel[1], self.max_lin, 170, "Linear Velocity (y)  [Q/E]", self.lin_bar_color)
+        self._draw_bar(img, current_vel[2], self.max_ang, 240, "Angular Velocity (yaw)  [A/D]", self.ang_bar_color)
         
         # Footer Help
-        help_text = "SPACE: STOP   |   ESC: RESET"
+        help_text = "SPACE/ESC: STOP  |  W/S: vx  |  Q/E: vy  |  A/D: yaw"
         help_y = self.height - 20
         (w, h), _ = cv2.getTextSize(help_text, cv2.FONT_HERSHEY_SIMPLEX, 0.4, 1)
         cv2.putText(img, help_text, ((self.width - w)//2, help_y), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (120, 120, 120), 1, cv2.LINE_AA)

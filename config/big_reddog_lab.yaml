@@ -1,5 +1,5 @@
 
-policy_path: /home/crazydog/bigrdog/brdog_rl_deploy/model/0212_1137/policy.pt
+policy_path: /home/ray/big_rdog/brdog_rl_deploy/model/0209_1514/policy.pt
 
 # Simulation time step
 simulation_dt: 0.005
@@ -27,9 +27,7 @@ action_scale: [ 0.125, 0.25, 0.25,
 cmd_scale: [2.0, 2.0, 0.25]
 
 num_actions: 12
-num_obs: 270
-one_step_obs_size: 45
-obs_buffer_size: 6
+num_obs: 45
 
 cmd_init: [ 0.0, 0.0, 0.0]
 max_lin_vel: 1.0
