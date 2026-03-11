@@ -143,6 +143,7 @@ class ActorCritic_DWAQ(nn.Module):
         actions_mean = self.actor(actor_input)
         return actions_mean
 
+
 class Controller:
     def __init__(self):
 
