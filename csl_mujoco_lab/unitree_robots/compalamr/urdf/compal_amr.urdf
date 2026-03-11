@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="compal_amr">
+  <mujoco>
+  <compiler
+    meshdir="../meshes"
+    balanceinertia="true"
+    discardvisual="false" />
+  </mujoco>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="2.59569390039498E-05 3.92560880102569E-07 0.0127582437299754"
+        rpy="0 0 0" />
+      <mass
+        value="39.4194529711232" />
+      <inertia
+        ixx="0.538814147760533"
+        ixy="0.000136634014522916"
+        ixz="-0.000125882615713462"
+        iyy="0.791445660994601"
+        iyz="2.94499259389159E-07"
+        izz="1.21586119090472" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/base_link_collision.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="F_lidar">
+    <inertial>
+      <origin
+        xyz="1.06460726345681E-09 1.61064966919255E-10 -0.0156626192455283"
+        rpy="0 0 0" />
+      <mass
+        value="0.150323115498736" />
+      <inertia
+        ixx="6.73031944392229E-05"
+        ixy="-7.00363761993641E-10"
+        ixz="3.30423735040374E-12"
+        iyy="6.73104267215486E-05"
+        iyz="-1.23666117909615E-11"
+        izz="0.000103280581165292" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/F_lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="F_lidar_joint"
+    type="fixed" dont_collapse="true">
+    <origin
+      xyz="0.217002044209402 0.1429047538305 0.05929798972915"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="F_lidar" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="R_lidar">
+    <inertial>
+      <origin
+        xyz="-3.03887748298592E-11 -1.32434790911518E-09 -0.0156626099953528"
+        rpy="0 0 0" />
+      <mass
+        value="0.150323106902144" />
+      <inertia
+        ixx="6.73032169407922E-05"
+        ixy="-6.93279627324856E-10"
+        ixz="8.53284394460163E-12"
+        iyy="6.73104272544051E-05"
+        iyz="-5.92736026357954E-12"
+        izz="0.000103280574739445" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/R_lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="R_lidar_joint"
+    type="fixed" dont_collapse="true">
+    <origin
+      xyz="-0.217002044209398 -0.1429047538305 0.0592979897291498"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="R_lidar" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="FL_Z">
+    <inertial>
+      <origin
+        xyz="4.48461335206263E-07 0.0157407427765054 -0.0317579183639847"
+        rpy="0 0 0" />
+      <mass
+        value="0.0627920067701351" />
+      <inertia
+        ixx="7.19676736234964E-05"
+        ixy="-1.32605408807586E-10"
+        ixz="5.39004939666946E-10"
+        iyy="6.42322629301271E-05"
+        iyz="1.93934184037754E-05"
+        izz="3.08991830828198E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/FL_Z.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="FL_Z_joint"
+    type="continuous">
+    <origin
+      xyz="0.225 0.14 -0.0507020102708502"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="FL_Z" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="FL_Y">
+    <inertial>
+      <origin
+        xyz="3.20811257004117E-08 -0.0348592060116931 1.70991623082983E-08"
+        rpy="0 0 0" />
+      <mass
+        value="1.28546928384308" />
+      <inertia
+        ixx="0.00189138298906044"
+        ixy="-1.07059085352935E-09"
+        ixz="9.9622799143609E-10"
+        iyy="0.00209674422691202"
+        iyz="7.36032312529509E-10"
+        izz="0.00189150168131795" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/FL_Y.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.025 0" rpy="1.5708 0 0"/> 
+      <geometry>
+        <cylinder radius="0.06" length="0.10"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FLY_joint"
+    type="continuous">
+    <origin
+      xyz="0 0 -0.0750000000000018"
+      rpy="0 0 0" />
+    <parent
+      link="FL_Z" />
+    <child
+      link="FL_Y" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="FR_Z">
+    <inertial>
+      <origin
+        xyz="-6.96960099827448E-07 -0.0157422599526739 -0.0317520050572874"
+        rpy="0 0 0" />
+      <mass
+        value="0.0627867707185735" />
+      <inertia
+        ixx="7.19699012450483E-05"
+        ixy="-2.64657203827441E-10"
+        ixz="-6.71409418677542E-11"
+        iyy="6.42367273968194E-05"
+        iyz="-1.93935589207112E-05"
+        izz="3.09012142504687E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/FR_Z.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="FR_Z_joint"
+    type="continuous">
+    <origin
+      xyz="0.225 -0.14 -0.0507020102708502"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="FR_Z" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="FR_Y">
+    <inertial>
+      <origin
+        xyz="-2.87916643859631E-08 0.0348592364978762 3.48750540113407E-08"
+        rpy="0 0 0" />
+      <mass
+        value="1.28547068503575" />
+      <inertia
+        ixx="0.0018914124762162"
+        ixy="-1.9846149441319E-09"
+        ixz="1.1572785368612E-08"
+        iyy="0.00209676579205242"
+        iyz="9.98180899833962E-11"
+        izz="0.0018914984353934" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/FR_Y.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0.025 0" rpy="-1.5708 0 0"/> 
+      <geometry>
+        <cylinder radius="0.06" length="0.10"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FR_Y_joint"
+    type="continuous">
+    <origin
+      xyz="0 0 -0.0750000000000018"
+      rpy="0 0 0" />
+    <parent
+      link="FR_Z" />
+    <child
+      link="FR_Y" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="RL_Z">
+    <inertial>
+      <origin
+        xyz="2.41974958153923E-07 0.0157407427765055 -0.0317579183639849"
+        rpy="0 0 0" />
+      <mass
+        value="0.0627920067701346" />
+      <inertia
+        ixx="7.19676736234961E-05"
+        ixy="-2.49969833683187E-10"
+        ixz="6.03640060760562E-11"
+        iyy="6.42322629295145E-05"
+        iyz="1.93934184037754E-05"
+        izz="3.08991830822072E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/RL_Z.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="RL_Z_joint"
+    type="continuous">
+    <origin
+      xyz="-0.225 0.14 -0.0507020102708502"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="RL_Z" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="RL_Y">
+    <inertial>
+      <origin
+        xyz="9.83657522102277E-09 -0.0348592364978761 1.73671761971583E-08"
+        rpy="0 0 0" />
+      <mass
+        value="1.28547068503575" />
+      <inertia
+        ixx="0.00189138964908384"
+        ixy="-1.0675036447837E-09"
+        ixz="-8.94176154483127E-09"
+        iyy="0.00209674335640638"
+        iyz="7.47272255478971E-10"
+        izz="0.00189149882687974" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/RL_Y.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.025 0" rpy="1.5708 0 0"/> 
+      <geometry>
+        <cylinder radius="0.06" length="0.10"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RL_Y_joint"
+    type="continuous">
+    <origin
+      xyz="0 0 -0.0750000000000018"
+      rpy="0 0 0" />
+    <parent
+      link="RL_Z" />
+    <child
+      link="RL_Y" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="RR_Z">
+    <inertial>
+      <origin
+        xyz="-9.03463696466655E-07 -0.0157422599526739 -0.031752005057287"
+        rpy="0 0 0" />
+      <mass
+        value="0.0627867707185724" />
+      <inertia
+        ixx="7.19699012450475E-05"
+        ixy="-1.47292779049963E-10"
+        ixz="-5.45778010362958E-10"
+        iyy="6.42367273972276E-05"
+        iyz="-1.93935589207111E-05"
+        izz="3.09012142508773E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/RR_Z.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="RR_Z_joint"
+    type="continuous">
+    <origin
+      xyz="-0.225 -0.14 -0.0507020102708502"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="RR_Z" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="RR_Y">
+    <inertial>
+      <origin
+        xyz="-5.10362358763228E-08 0.0348592060116931 3.46070589962721E-08"
+        rpy="0 0 0" />
+      <mass
+        value="1.28546928384307" />
+      <inertia
+        ixx="0.00189140767258331"
+        ixy="-1.98770085227501E-09"
+        ixz="6.92502018290604E-09"
+        iyy="0.00209676315362144"
+        iyz="1.11056848565284E-10"
+        izz="0.00189149592450449" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/RR_Y.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0.025 0" rpy="-1.5708 0 0"/> 
+      <geometry>
+        <cylinder radius="0.06" length="0.10"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RR_Y_joint"
+    type="continuous">
+    <origin
+      xyz="0 0 -0.0750000000000018"
+      rpy="0 0 0" />
+    <parent
+      link="RR_Z" />
+    <child
+      link="RR_Y" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+</robot>
